@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "build:watch": "webpack --watch",
-    "start": "webpack",
+    "start": "webpack-dev-server --inline --content-base=dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
