@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import ConnectionStatus from '../connection-status';
 import AxesList from '../axes-list';
+import CirclePositionIndicator from '../circle-position-indicator';
 
 const Gamepad = ({
 	id,
@@ -30,6 +31,10 @@ const Gamepad = ({
 		<br />
 
 		<AxesList axes={ axes } />
+
+		<CirclePositionIndicator x={ axes[0] } y={ axes[1] } />
+
+		<CirclePositionIndicator x={ axes[2] } y={ axes[3] } />
 	</div>
 );
 

@@ -9,7 +9,7 @@ module.exports = {
 		filename: 'bundle.js',
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx'],
+		extensions: ['', '.js', '.jsx', '.css', '.less'],
 	},
 	module: {
 		loaders: [
@@ -19,6 +19,22 @@ module.exports = {
 					path.resolve(__dirname, './src'),
 				],
 				test: /\.jsx?$/,
+			},
+			{
+				// Use CSS Modules for React components
+				loader: 'style!css?modules!less',
+				include: [
+					path.resolve(__dirname, 'src/components'),
+				],
+				test: /\.(css|less)$/,
+			},
+			{
+				// Regular LESS loader for general styles
+				loader: 'style!css!less',
+				include: [
+					path.resolve(__dirname, 'src/styles'),
+				],
+				test: /\.(css|less)$/,
 			},
 		],
 	},
