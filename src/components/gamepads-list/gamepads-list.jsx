@@ -3,7 +3,7 @@ import Gamepad from '../gamepad';
 
 const buildGamepad = (gamepad) => (
 	<Gamepad
-		gamepad={ gamepad }
+		{ ...gamepad }
 		key={ gamepad.index }
 	/>
 );
