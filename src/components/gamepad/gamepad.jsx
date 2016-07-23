@@ -5,6 +5,8 @@ const Gamepad = ({
 	id,
 	index,
 	connected,
+	timestamp,
+	mapping,
 }) => (
 	<div className="gamepad">
 		<strong>
@@ -15,6 +17,15 @@ const Gamepad = ({
 			{ /* "Connected" */ }
 			<ConnectionStatus connected={ connected } />
 		</strong>
+		<br />
+
+		<label>Timestamp: </label>
+		<span>{ timestamp }</span>
+		<br />
+
+		<label>Mapping: </label>
+		<span>{ mapping }</span>
+		<br />
 	</div>
 );
 
@@ -30,10 +41,19 @@ Gamepad.propTypes = {
 
 	// Whether or not this controller is connected
 	connected: PropTypes.bool,
+
+	// Last time the data for this gamepad was updated -- relative to the
+	// `navigationStart` attribute of the `PerformanceTiming` interface
+	timestamp: PropTypes.number,
+
+	// Really only ever 'standard'
+	mapping: PropTypes.string,
 };
 
 Gamepad.defaultProps = {
 	connected: null,
+	timestamp: 0,
+	mapping: 'unknown',
 };
 
 export default Gamepad;
