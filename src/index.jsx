@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import Application from './components/application';
 import { createStore } from 'redux';
 import reducer from './reducer';
 import getGamepads from './get-gamepads';
@@ -16,3 +20,10 @@ const updater = () => {
 };
 
 updater();
+
+ReactDOM.render(
+	<Provider store={ store }>
+		<Application />
+	</Provider>,
+	document.getElementById('app')
+);

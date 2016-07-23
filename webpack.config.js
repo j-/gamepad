@@ -2,14 +2,14 @@ const path = require('path');
 
 module.exports = {
 	entry: {
-		'bundle': path.resolve(__dirname, './src/index.js'),
+		'bundle': path.resolve(__dirname, './src/index.jsx'),
 	},
 	output: {
 		path: path.resolve(__dirname, './dist'),
 		filename: 'bundle.js',
 	},
 	resolve: {
-		extensions: ['', '.js'],
+		extensions: ['', '.js', '.jsx'],
 	},
 	module: {
 		loaders: [
@@ -18,7 +18,7 @@ module.exports = {
 				include: [
 					path.resolve(__dirname, './src'),
 				],
-				test: /\.js?$/,
+				test: /\.jsx?$/,
 			},
 		],
 	},
