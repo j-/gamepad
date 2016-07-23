@@ -1,21 +1,18 @@
 import React from 'react';
 import Axis from '../axis';
 
-const buildAxis = (axis, index) => (
-	<Axis
-		value={ axis }
-		key={ index }
-	/>
-);
-
 const buildAxesList = (axes) => (
-	axes.map((axis, i) => buildAxis(axis, i))
+	axes.map((axis, i) => (
+		<li className="gamepad-axis-item" key={ i }>
+			<Axis value={ axis } />
+		</li>
+	))
 );
 
 const AxesList = ({ axes }) => (
-	<div className="gamepad-axes-list">
+	<ol className="gamepad-axes-list" start="0">
 		{ buildAxesList(axes) }
-	</div>
+	</ol>
 );
 
 export default AxesList;
