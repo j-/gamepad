@@ -22,3 +22,12 @@ export default (state = {}, action) => {
 			return state;
 	}
 };
+
+/**
+ * Get all gamepads from the store.
+ * @param {Object} state Current state
+ * @returns {Object[]} An array of gamepad objects sorted by ID
+ */
+export const getAllGamepads = (state) => (
+	Object.keys(state).sort().map((key) => state[key])
+);

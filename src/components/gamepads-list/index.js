@@ -1,8 +1,9 @@
 import GamepadsList from './gamepads-list';
 import { connect } from 'react-redux';
+import { getAllGamepads } from '../../reducer';
 
 const mapStateToProps = (state) => ({
-	gamepads: [],
+	gamepads: getAllGamepads(state),
 });
 
 const GamepadsListContainer = connect(
