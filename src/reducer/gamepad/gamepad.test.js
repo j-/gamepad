@@ -51,7 +51,9 @@ test('Can update a gamepad', (t) => {
 		timestamp: 0,
 		mapping: 'standard',
 		axes: [0.0000152587890625, -0.0000152587890625, 0.0000152587890625, -0.0000152587890625],
-		buttons: [],
+		buttons: [
+			{ pressed: false, value: 0 },
+		],
 	};
 	const updated = {
 		id: 'Xbox 360 Controller (XInput STANDARD GAMEPAD)',
@@ -60,7 +62,9 @@ test('Can update a gamepad', (t) => {
 		timestamp: 100,
 		mapping: 'standard',
 		axes: [0.1525878906250000, -0.1525878906250000, 0.1525878906250000, -0.1525878906250000],
-		buttons: [],
+		buttons: [
+			{ pressed: true, value: 1 },
+		],
 	};
 	const action = gamepadUpdate(updated);
 	t.deepEqual(
@@ -72,7 +76,9 @@ test('Can update a gamepad', (t) => {
 			timestamp: 100,
 			mapping: 'standard',
 			axes: [0.1525878906250000, -0.1525878906250000, 0.1525878906250000, -0.1525878906250000],
-			buttons: [],
+			buttons: [
+				{ pressed: true, value: 1 },
+			],
 		},
 		'Gamepad matches expected shape'
 	);
@@ -87,7 +93,9 @@ test('Ignores updates for other gamepads', (t) => {
 		timestamp: 0,
 		mapping: 'standard',
 		axes: [0.0000152587890625, -0.0000152587890625, 0.0000152587890625, -0.0000152587890625],
-		buttons: [],
+		buttons: [
+			{ pressed: false, value: 0 },
+		],
 	};
 	const updated = {
 		id: 'Xbox 360 Controller (XInput STANDARD GAMEPAD)',
@@ -96,7 +104,9 @@ test('Ignores updates for other gamepads', (t) => {
 		timestamp: 100,
 		mapping: 'standard',
 		axes: [0.1525878906250000, -0.1525878906250000, 0.1525878906250000, -0.1525878906250000],
-		buttons: [],
+		buttons: [
+			{ pressed: true, value: 1 },
+		],
 	};
 	const action = gamepadUpdate(updated);
 	t.deepEqual(
@@ -108,7 +118,9 @@ test('Ignores updates for other gamepads', (t) => {
 			timestamp: 0,
 			mapping: 'standard',
 			axes: [0.0000152587890625, -0.0000152587890625, 0.0000152587890625, -0.0000152587890625],
-			buttons: [],
+			buttons: [
+				{ pressed: false, value: 0 },
+			],
 		},
 		'Gamepad shape has not changed'
 	);

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import axes from './axes';
+import buttons from './buttons';
 
 import {
 	GAMEPAD_CONNECT,
@@ -38,10 +39,10 @@ const connected = (id) => (state = false, action) => {
 export default (id) => combineReducers({
 	connected: connected(id),
 	axes: axes(id),
+	buttons: buttons(id),
 
 	id: field(id, 'id'),
 	index: field(id, 'index'),
 	timestamp: field(id, 'timestamp'),
 	mapping: field(id, 'mapping'),
-	buttons: field(id, 'buttons'),
 });
