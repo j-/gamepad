@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import ConnectionStatus from '../connection-status';
+import AxesList from '../axes-list';
 
 const Gamepad = ({
 	id,
@@ -7,6 +8,7 @@ const Gamepad = ({
 	connected,
 	timestamp,
 	mapping,
+	axes,
 }) => (
 	<div className="gamepad">
 		<strong>
@@ -26,6 +28,8 @@ const Gamepad = ({
 		<label>Mapping: </label>
 		<span>{ mapping }</span>
 		<br />
+
+		<AxesList axes={ axes } />
 	</div>
 );
 
@@ -48,6 +52,9 @@ Gamepad.propTypes = {
 
 	// Really only ever 'standard'
 	mapping: PropTypes.string,
+
+	// Gyro or other rotational data
+	axes: PropTypes.array.isRequired,
 };
 
 Gamepad.defaultProps = {
