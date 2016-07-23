@@ -1,10 +1,10 @@
 import test from 'ava';
 import { createStore } from 'redux';
-import reducer from './gamepad';
+import reducer from './';
 
 import {
 	gamepadConnected,
-} from './actions';
+} from '../actions';
 
 test('Can use reducer to create store', (t) => {
 	t.plan(1);
