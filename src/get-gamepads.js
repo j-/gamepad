@@ -8,9 +8,7 @@ if (typeof navigator.getGamepads === 'function') {
 			.filter(Boolean)
 	);
 } else {
-	getGamepads = () => {
-		throw new Error('Unable to find any gamepads');
-	};
+	getGamepads = () => [];
 }
 
 export default getGamepads;
