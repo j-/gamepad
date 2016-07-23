@@ -1,30 +1,34 @@
 import {
-	GAMEPAD_UPDATE,
-	GAMEPAD_CONNECT,
+	GAMEPADS_UPDATE,
 } from '../../types';
 
-export const axis = (id, index) => (state = 0, action) => {
-	if (!action.gamepad || action.gamepad.index !== id) {
+const DEFAULT_AXIS_STATE = 0;
+
+const DEFAULT_AXES_STATE = [
+	DEFAULT_AXIS_STATE, // 0x0
+	DEFAULT_AXIS_STATE, // 0x1
+	DEFAULT_AXIS_STATE, // 0x2
+	DEFAULT_AXIS_STATE, // 0x3
+];
+
+export const axis = (id, index) => (state = DEFAULT_AXIS_STATE, action) => {
+	if (!action.gamepads || !(id in action.gamepads)) {
 		return state;
 	}
 	switch (action.type) {
-		case GAMEPAD_UPDATE:
-			return action.gamepad.axes[index];
+		case GAMEPADS_UPDATE:
+			return action.gamepads[id].axes[index];
 		default:
 			return state;
 	}
 };
 
-export const axes = (id) => (state = [], action) => {
-	if (!action.gamepad || action.gamepad.index !== id) {
+export const axes = (id) => (state = DEFAULT_AXES_STATE, action) => {
+	if (!action.gamepads || !(id in action.gamepads)) {
 		return state;
 	}
 	switch (action.type) {
-		case GAMEPAD_CONNECT:
-			return [
-				...action.gamepad.axes,
-			];
-		case GAMEPAD_UPDATE:
+		case GAMEPADS_UPDATE:
 			return state.map((x, i) => (
 				axis(id, i)(x, action)
 			));

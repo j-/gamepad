@@ -1,20 +1,8 @@
 import {
-	GAMEPAD_CONNECT,
-	GAMEPAD_DISCONNECT,
-	GAMEPAD_UPDATE,
+	GAMEPADS_UPDATE,
 } from './types';
 
-export const gamepadConnected = (gamepad) => ({
-	type: GAMEPAD_CONNECT,
-	gamepad,
-});
-
-export const gamepadDisconnected = (gamepad) => ({
-	type: GAMEPAD_DISCONNECT,
-	gamepad,
-});
-
-export const gamepadUpdate = (gamepad) => ({
-	type: GAMEPAD_UPDATE,
-	gamepad,
+export const gamepadsUpdate = (gamepads) => ({
+	type: GAMEPADS_UPDATE,
+	gamepads,
 });

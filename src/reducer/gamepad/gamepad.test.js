@@ -3,8 +3,7 @@ import { createStore } from 'redux';
 import reducer from './';
 
 import {
-	gamepadConnected,
-	gamepadUpdate,
+	gamepadsUpdate,
 } from '../actions';
 
 test('Can use reducer to create store', (t) => {
@@ -13,37 +12,9 @@ test('Can use reducer to create store', (t) => {
 	t.truthy(store, 'Store was created');
 });
 
-test('Can create a new gamepad', (t) => {
-	t.plan(1);
-	const gamepad = {
-		id: 'Xbox 360 Controller (XInput STANDARD GAMEPAD)',
-		index: 0,
-		connected: true,
-		timestamp: 0,
-		mapping: 'standard',
-		axes: [0.0000152587890625, -0.0000152587890625, 0.0000152587890625, -0.0000152587890625],
-		buttons: [],
-	};
-	const action = gamepadConnected(gamepad);
-	const actual = reducer(0)(undefined, action);
-	const expected = {
-		id: 'Xbox 360 Controller (XInput STANDARD GAMEPAD)',
-		index: 0,
-		connected: true,
-		timestamp: 0,
-		mapping: 'standard',
-		axes: [0.0000152587890625, -0.0000152587890625, 0.0000152587890625, -0.0000152587890625],
-		buttons: [],
-	};
-	t.deepEqual(
-		actual,
-		expected,
-		'Gamepad matches expected shape'
-	);
-});
-
 test('Can update a gamepad', (t) => {
 	t.plan(1);
+
 	const initial = {
 		id: 'Xbox 360 Controller (XInput STANDARD GAMEPAD)',
 		index: 0,
@@ -55,20 +26,25 @@ test('Can update a gamepad', (t) => {
 			{ pressed: false, value: 0 },
 		],
 	};
-	const updated = {
-		id: 'Xbox 360 Controller (XInput STANDARD GAMEPAD)',
-		index: 0,
-		connected: true,
-		timestamp: 100,
-		mapping: 'standard',
-		axes: [0.1525878906250000, -0.1525878906250000, 0.1525878906250000, -0.1525878906250000],
-		buttons: [
-			{ pressed: true, value: 1 },
-		],
-	};
-	const action = gamepadUpdate(updated);
+
+	const action = gamepadsUpdate({
+		0: {
+			id: 'Xbox 360 Controller (XInput STANDARD GAMEPAD)',
+			index: 0,
+			connected: true,
+			timestamp: 100,
+			mapping: 'standard',
+			axes: [0.1525878906250000, -0.1525878906250000, 0.1525878906250000, -0.1525878906250000],
+			buttons: [
+				{ pressed: true, value: 1 },
+			],
+		}
+	});
+
+	const actual = reducer(0)(initial, action);
+
 	t.deepEqual(
-		reducer(0)(initial, action),
+		actual,
 		{
 			id: 'Xbox 360 Controller (XInput STANDARD GAMEPAD)',
 			index: 0,
@@ -85,7 +61,8 @@ test('Can update a gamepad', (t) => {
 });
 
 test('Ignores updates for other gamepads', (t) => {
-	t.plan(1);
+	t.plan(7);
+
 	const initial = {
 		id: 'Xbox 360 Controller (XInput STANDARD GAMEPAD)',
 		index: 0,
@@ -97,31 +74,56 @@ test('Ignores updates for other gamepads', (t) => {
 			{ pressed: false, value: 0 },
 		],
 	};
-	const updated = {
-		id: 'Xbox 360 Controller (XInput STANDARD GAMEPAD)',
-		index: 1, // Different index
-		connected: true,
-		timestamp: 100,
-		mapping: 'standard',
-		axes: [0.1525878906250000, -0.1525878906250000, 0.1525878906250000, -0.1525878906250000],
-		buttons: [
-			{ pressed: true, value: 1 },
-		],
-	};
-	const action = gamepadUpdate(updated);
-	t.deepEqual(
-		reducer(0)(initial, action),
-		{
-			id: 'Xbox 360 Controller (XInput STANDARD GAMEPAD)',
-			index: 0,
+
+	const action = gamepadsUpdate({
+		1: {
+			id: 'Another Xbox 360 Controller (XInput STANDARD GAMEPAD)',
+			index: 1, // Different index
 			connected: true,
-			timestamp: 0,
+			timestamp: 100,
 			mapping: 'standard',
-			axes: [0.0000152587890625, -0.0000152587890625, 0.0000152587890625, -0.0000152587890625],
+			axes: [0.1525878906250000, -0.1525878906250000, 0.1525878906250000, -0.1525878906250000],
 			buttons: [
-				{ pressed: false, value: 0 },
+				{ pressed: true, value: 1 },
 			],
-		},
-		'Gamepad shape has not changed'
+		}
+	});
+
+	const actual = reducer(0)(initial, action);
+
+	t.is(
+		actual.id,
+		'Xbox 360 Controller (XInput STANDARD GAMEPAD)',
+		'`id` field has not changed'
+	);
+	t.is(
+		actual.index,
+		0,
+		'`index` field has not changed'
+	);
+	t.is(
+		actual.connected,
+		true,
+		'`connected` field has not changed'
+	);
+	t.is(
+		actual.timestamp,
+		0,
+		'`timestamp` field has not changed'
+	);
+	t.is(
+		actual.mapping,
+		'standard',
+		'`mapping` field has not changed'
+	);
+	t.deepEqual(
+		actual.axes,
+		[0.0000152587890625, -0.0000152587890625, 0.0000152587890625, -0.0000152587890625],
+		'`axes` field has not changed'
+	);
+	t.deepEqual(
+		actual.buttons,
+		[{ pressed: false, value: 0 }],
+		'`buttons` field has not changed'
 	);
 });
