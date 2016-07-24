@@ -1,4 +1,5 @@
 import React from 'react';
+import Value from '../value';
 
 import {
 	pressed as pressedClassName,
@@ -7,7 +8,7 @@ import {
 
 const Button = ({ pressed, value }) => (
 	<div className={ pressed ? pressedClassName : unpressedClassName }>
-		{ value }
+		<Value value={ value } places={ 8 } />
 	</div>
 );
 
