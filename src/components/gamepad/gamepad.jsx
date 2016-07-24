@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import ConnectionStatus from '../connection-status';
 import AxesList from '../axes-list';
 import DualCirclePositionIndicators from '../dual-circle-position-indicators';
+import ButtonsList from '../buttons-list';
 
 const Gamepad = ({
 	id,
@@ -10,6 +11,7 @@ const Gamepad = ({
 	timestamp,
 	mapping,
 	axes,
+	buttons,
 }) => (
 	<div className="gamepad">
 		<strong>
@@ -38,6 +40,8 @@ const Gamepad = ({
 			x2={ axes[2] }
 			y2={ axes[3] }
 		/>
+
+		<ButtonsList buttons={ buttons } />
 	</div>
 );
 
@@ -63,6 +67,9 @@ Gamepad.propTypes = {
 
 	// Gyro or other rotational data
 	axes: PropTypes.array.isRequired,
+
+	// Input data
+	buttons: PropTypes.array.isRequired,
 };
 
 Gamepad.defaultProps = {
