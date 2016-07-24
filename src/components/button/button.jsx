@@ -1,7 +1,12 @@
 import React from 'react';
 
-const Button = ({ value }) => (
-	<div className="gamepad-button">
+import {
+	pressed as pressedClassName,
+	unpressed as unpressedClassName,
+} from './styles';
+
+const Button = ({ pressed, value }) => (
+	<div className={ pressed ? pressedClassName : unpressedClassName }>
 		{ value }
 	</div>
 );
