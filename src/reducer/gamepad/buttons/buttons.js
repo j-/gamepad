@@ -32,9 +32,10 @@ export const button = (id, index) => (state = DEFAULT_BUTTON_STATE, action) => {
 	}
 	switch (action.type) {
 		case GAMEPADS_UPDATE:
-			return {
-				...action.gamepads[id].buttons[index],
-			};
+			const gamepad = action.gamepads[id];
+			const button = gamepad.buttons[index];
+			const { pressed, value } = button;
+			return { pressed, value };
 		default:
 			return state;
 	}
