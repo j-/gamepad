@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './Button';
 
 const Buttons = ({ buttons }) => (
-	<div>
+	<div className="gamepad-buttons">
 		<Button button={ buttons[0x0] } />
 		<Button button={ buttons[0x1] } />
 		<Button button={ buttons[0x2] } />

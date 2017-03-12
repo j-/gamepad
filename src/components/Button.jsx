@@ -13,7 +13,7 @@ const ButtonPressed = ({ pressed }) => (
 );
 
 const Button = ({ button }) => (
-	<div>
+	<div className="gamepad-button">
 		<ButtonValue value={ button.value } />
 		<ButtonPressed pressed={ button.pressed } />
 	</div>
