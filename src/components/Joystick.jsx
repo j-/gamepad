@@ -1,9 +1,10 @@
 import React from 'react';
+import Axis from './Axis';
 
 const Joystick = ({ x, y }) => (
 	<div>
-		<div>{ x }</div>
-		<div>{ y }</div>
+		<Axis value={ x } />
+		<Axis value={ y } />
 	</div>
 );
 

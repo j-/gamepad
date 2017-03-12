@@ -6,3 +6,23 @@
 .gamepad-button {
 	flex-basis: (100% / 16);
 }
+
+.gamepad-axis {
+	border: 1px solid #ccc;
+	width: 20em;
+	height: 2em;
+	position: relative;
+}
+
+.gamepad-axis-value {
+	display: none;
+}
+
+.gamepad-axis-bar {
+	position: absolute;
+	left: 50%;
+	background-color: #ddd;
+	height: 100%;
+	width: 50%;
+	transform-origin: top left;
+}
