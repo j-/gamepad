@@ -1,5 +1,6 @@
 import React from 'react';
 import Axes from './Axes';
+import Buttons from './Buttons';
 
 const Gamepad = ({ gamepad }) => (
 	<div>
@@ -21,7 +22,7 @@ const Gamepad = ({ gamepad }) => (
 		</div>
 		<div>
 			<strong>Buttons</strong><br />
-			<span>{ JSON.stringify(gamepad.buttons) }</span>
+			<Buttons buttons={ gamepad.buttons } />
 		</div>
 		<div>
 			<strong>Axes</strong><br />
