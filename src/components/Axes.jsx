@@ -1,11 +1,16 @@
 import React from 'react';
+import Joystick from './Joystick';
 
 const Axes = ({ axes }) => (
 	<div>
-		<div>{ axes[0] }</div>
-		<div>{ axes[1] }</div>
-		<div>{ axes[2] }</div>
-		<div>{ axes[3] }</div>
+		<Joystick
+			x={ axes[0] }
+			y={ axes[1] }
+		/>
+		<Joystick
+			x={ axes[2] }
+			y={ axes[3] }
+		/>
 	</div>
 );
 
