@@ -1,15 +1,24 @@
 .gamepad-buttons {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 .gamepad-button {
-	flex-basis: (100% / 16);
-	border: 1px solid #ccc;
+	box-sizing: border-box;
+	padding: 0.5em;
+	flex-basis: (100% / 8);
+	outline: 1px solid #ccc;
+	outline-offset: -1px;
+	position: relative;
+	z-index: 1;
 }
 
 .gamepad-button-pressed {
-	border-color: #09c;
+	z-index: 2;
+	outline-width: 4px;
+	outline-offset: -4px;
+	outline-color: #09c;
 }
 
 .gamepad-axis {
