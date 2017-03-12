@@ -26,3 +26,43 @@
 	width: 50%;
 	transform-origin: top left;
 }
+
+.direction-none,
+.direction-n,
+.direction-ne,
+.direction-e,
+.direction-se,
+.direction-s,
+.direction-sw,
+.direction-w,
+.direction-nw {
+	width: 1em;
+	height: 1em;
+	text-align: center;
+	line-height: 1em;
+	font-size: 4em;
+}
+
+.direction-none::after {
+	content: '\d7';
+}
+
+.direction-n::after,
+.direction-ne::after,
+.direction-e::after,
+.direction-se::after,
+.direction-s::after,
+.direction-sw::after,
+.direction-w::after,
+.direction-nw::after {
+	content: '\21d1';
+}
+
+.direction-n  { transform: rotate(0deg); }
+.direction-ne { transform: rotate(45deg); }
+.direction-e  { transform: rotate(90deg); }
+.direction-se { transform: rotate(135deg); }
+.direction-s  { transform: rotate(180deg); }
+.direction-sw { transform: rotate(225deg); }
+.direction-w  { transform: rotate(270deg); }
+.direction-nw { transform: rotate(315deg); }

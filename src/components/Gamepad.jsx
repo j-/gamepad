@@ -1,6 +1,7 @@
 import React from 'react';
 import Axes from './Axes';
 import Buttons from './Buttons';
+import POVHat from './POVHat';
 
 const Gamepad = ({ gamepad }) => (
 	<div>
@@ -27,6 +28,10 @@ const Gamepad = ({ gamepad }) => (
 		<div>
 			<strong>Axes</strong><br />
 			<Axes axes={ gamepad.axes } />
+		</div>
+		<div>
+			<strong>Point of View Hat</strong><br />
+			<POVHat buttons={ gamepad.buttons } />
 		</div>
 	</div>
 );
