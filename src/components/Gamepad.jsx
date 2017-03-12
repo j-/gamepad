@@ -5,14 +5,7 @@ import POVHat from './POVHat';
 
 const Gamepad = ({ gamepad }) => (
 	<div>
-		<div>
-			<strong>Index</strong><br />
-			<span>{ JSON.stringify(gamepad.index) }</span>
-		</div>
-		<div>
-			<strong>ID</strong><br />
-			<span>{ JSON.stringify(gamepad.id) }</span>
-		</div>
+		<h2>Gamepad { gamepad.index }: { gamepad.id }</h2>
 		<div>
 			<strong>Mapping</strong><br />
 			<span>{ JSON.stringify(gamepad.mapping) }</span>

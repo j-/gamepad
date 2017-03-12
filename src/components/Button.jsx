@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 const ButtonValue = ({ value }) => (
 	<div>
@@ -12,8 +13,11 @@ const ButtonPressed = ({ pressed }) => (
 	</div>
 );
 
-const Button = ({ button }) => (
-	<div className="gamepad-button">
+const Button = ({ index, button }) => (
+	<div className={ classNames('gamepad-button', {
+		'gamepad-button-pressed': button.pressed,
+	}) }>
+		<em>Button { index }</em>
 		<ButtonValue value={ button.value } />
 		<ButtonPressed pressed={ button.pressed } />
 	</div>
