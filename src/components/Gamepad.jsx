@@ -25,12 +25,7 @@ const Gamepad = ({ gamepad }) => (
 		</div>
 		<div>
 			<strong>Axes</strong><br />
-			<Axes
-				axis0={ gamepad.axes[0] }
-				axis1={ gamepad.axes[1] }
-				axis2={ gamepad.axes[2] }
-				axis3={ gamepad.axes[3] }
-			/>
+			<Axes axes={ gamepad.axes } />
 		</div>
 	</div>
 );

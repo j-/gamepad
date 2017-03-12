@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Axes = ({ axis0, axis1, axis2, axis3 }) => (
+const Axes = ({ axes }) => (
 	<div>
-		<div>{ axis0 }</div>
-		<div>{ axis1 }</div>
-		<div>{ axis2 }</div>
-		<div>{ axis3 }</div>
+		<div>{ axes[0] }</div>
+		<div>{ axes[1] }</div>
+		<div>{ axes[2] }</div>
+		<div>{ axes[3] }</div>
 	</div>
 );
 
