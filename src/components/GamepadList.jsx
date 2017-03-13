@@ -2,9 +2,7 @@ import React from 'react';
 import Gamepad from './Gamepad';
 
 const makeGamepad = (gamepad, i) => (
-	<div key={ i }>
-		<Gamepad gamepad={ gamepad } />
-	</div>
+	<Gamepad gamepad={ gamepad } key={ i } />
 );
 
 const GamepadList = ({ gamepads }) => (

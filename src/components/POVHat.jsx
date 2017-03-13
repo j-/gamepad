@@ -1,6 +1,6 @@
 import React from 'react';
 
-const POVHat = ({ buttons }) => {
+const Direction = ({ buttons }) => {
 	const buttonN = buttons[0xc];
 	const buttonS = buttons[0xd];
 	const buttonW = buttons[0xe];
@@ -25,5 +25,11 @@ const POVHat = ({ buttons }) => {
 		return <div className="direction-none" />;
 	}
 };
+
+const POVHat = ({ buttons }) => (
+	<div className="pov-hat">
+		<Direction buttons={ buttons } />
+	</div>
+);
 
 export default POVHat;

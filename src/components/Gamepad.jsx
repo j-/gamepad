@@ -1,30 +1,40 @@
 import React from 'react';
-import Axes from './Axes';
+import Joystick from './Joystick';
 import Buttons from './Buttons';
 import POVHat from './POVHat';
 
 const Gamepad = ({ gamepad }) => (
-	<div>
-		<h2>Gamepad { gamepad.index }: { gamepad.id }</h2>
+	<div className="gamepad">
+		<h2>#{ gamepad.index }: { gamepad.id }</h2>
 		<div>
-			<strong>Mapping</strong><br />
-			<span>{ JSON.stringify(gamepad.mapping) }</span>
+			<strong>Mapping</strong>:&nbsp;
+			<span>{ gamepad.mapping }</span>
 		</div>
 		<div>
-			<strong>Connected</strong><br />
-			<span>{ JSON.stringify(gamepad.connected) }</span>
+			<strong>Connected</strong>:&nbsp;
+			<span>{ String(gamepad.connected) }</span>
 		</div>
 		<div>
-			<strong>Buttons</strong><br />
 			<Buttons buttons={ gamepad.buttons } />
 		</div>
-		<div>
-			<strong>Axes</strong><br />
-			<Axes axes={ gamepad.axes } />
-		</div>
-		<div>
-			<strong>Point of View Hat</strong><br />
-			<POVHat buttons={ gamepad.buttons } />
+		<div className="gamepad-visuals">
+			<div className="gamepad-visuals-item" title="Left joystick">
+				<Joystick
+					x={ gamepad.axes[0] }
+					y={ gamepad.axes[1] }
+				/>
+			</div>
+			<div className="gamepad-visuals-item" title="Right joystick">
+				<Joystick
+					x={ gamepad.axes[2] }
+					y={ gamepad.axes[3] }
+				/>
+			</div>
+			<div className="gamepad-visuals-item" title="Point of View Hat">
+				<POVHat
+					buttons={ gamepad.buttons }
+				/>
+			</div>
 		</div>
 	</div>
 );
