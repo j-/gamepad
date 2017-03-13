@@ -7,25 +7,27 @@ const HALF_WIDTH = WIDTH / 2;
 const HALF_HEIGHT = HEIGHT / 2;
 
 export default class JoystickPosition extends Component {
-	drawPosition (props) {
-		const { x, y } = props;
+	drawPosition (props, oldProps) {
 		const canvas = this.refs.canvas;
 		const ctx = canvas.getContext('2d');
 		ctx.save();
-		ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+		ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
 		ctx.fillRect(0, 0, WIDTH, HEIGHT);
-		ctx.fillStyle = 'black';
 		ctx.translate(HALF_WIDTH, HALF_HEIGHT);
-		ctx.fillRect(x * HALF_WIDTH - 1, y * HALF_HEIGHT - 1, 2, 2);
+		ctx.beginPath();
+		ctx.moveTo(oldProps.x * HALF_WIDTH, oldProps.y * HALF_HEIGHT);
+		ctx.lineTo(props.x * HALF_WIDTH, props.y * HALF_HEIGHT);
+		ctx.closePath();
+		ctx.stroke();
 		ctx.restore();
 	}
 
 	componentDidMount () {
-		this.drawPosition(this.props);
+		this.drawPosition(this.props, { x: 0, y: 0 });
 	}
 
-	componentWillReceiveProps (props) {
-		this.drawPosition(props);
+	componentWillReceiveProps (nextProps) {
+		this.drawPosition(nextProps, this.props);
 	}
 
 	render () {
