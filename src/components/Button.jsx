@@ -1,9 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
 
+const formatValue = (value) => (
+	value.toFixed(4)
+);
+
 const ButtonValue = ({ value }) => (
 	<div className="gamepad-button-value">
-		{ value }
+		{ formatValue(value) }
 	</div>
 );
 
