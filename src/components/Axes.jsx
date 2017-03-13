@@ -2,7 +2,7 @@ import React from 'react';
 import Joystick from './Joystick';
 
 const Axes = ({ axes }) => (
-	<div>
+	<div className="gamepad-joysticks">
 		<Joystick
 			x={ axes[0] }
 			y={ axes[1] }

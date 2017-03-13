@@ -1,3 +1,6 @@
+@joystick-axis-length: 10em;
+@joystick-axis-height: 2em;
+
 .gamepad-buttons {
 	display: flex;
 	flex-direction: row;
@@ -16,15 +19,40 @@
 
 .gamepad-button-pressed {
 	z-index: 2;
-	outline-width: 4px;
-	outline-offset: -4px;
-	outline-color: #09c;
+	outline: 2px inset #09c;
+	outline-offset: -2px;
+}
+
+.gamepad-joysticks {
+	display: flex;
+	flex-direction: row;
+}
+
+.gamepad-joystick {
+	width: (@joystick-axis-length + @joystick-axis-height);
+	height: (@joystick-axis-length + @joystick-axis-height);
+	position: relative;
+}
+
+.gamepad-joystick-x {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.gamepad-joystick-y {
+	transform-origin: top left;
+	transform: rotate(90deg);
+	position: absolute;
+	top: 0;
+	left: @joystick-axis-height;
 }
 
 .gamepad-axis {
-	border: 1px solid #ccc;
-	width: 20em;
-	height: 2em;
+	outline: 1px solid #ccc;
+	outline-offset: -1px;
+	width: @joystick-axis-length;
+	height: @joystick-axis-height;
 	position: relative;
 }
 
