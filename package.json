@@ -2,24 +2,45 @@
   "name": "gamepad",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
+  "devDependencies": {
+    "@types/classnames": "^2.2.0",
     "@types/jest": "^19.2.4",
     "@types/node": "^7.0.29",
     "@types/react": "^15.0.27",
     "@types/react-dom": "^15.5.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
-  },
-  "devDependencies": {
-    "@types/classnames": "^2.2.0",
     "classnames": "^2.2.5",
+    "gh-pages": "^1.0.0",
     "normalize.css": "^7.0.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "react-scripts-ts": "2.2.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
-  }
+    "eject": "react-scripts-ts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "description": "Detect and monitor gamepad input devices",
+  "main": "index.js",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-/gamepad.git"
+  },
+  "keywords": [
+    "gamepad",
+    "controller",
+    "playstation",
+    "xbox",
+    "joystick"
+  ],
+  "author": "Jamie Hoeks <j@skeoh.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/j-/gamepad/issues"
+  },
+  "homepage": "https://skeoh.com/gamepad/"
 }
