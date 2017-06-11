@@ -1,0 +1,12 @@
+.Gamepad {
+	border-radius: 2.5px;
+	border: 1px solid #bbb;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+
+.Gamepad-row {
+	box-sizing: border-box;
+	padding: 0.5em;
+}

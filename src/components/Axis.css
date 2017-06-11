@@ -1,0 +1,20 @@
+.Axis {
+	outline: 1px solid #ccc;
+	outline-offset: -1px;
+	width: 10em;
+	height: 2em;
+	position: relative;
+}
+
+.Axis-value {
+	display: none;
+}
+
+.Axis-bar {
+	position: absolute;
+	left: 50%;
+	background-color: #ddd;
+	height: 100%;
+	width: 50%;
+	transform-origin: top left;
+}

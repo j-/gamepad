@@ -1,0 +1,10 @@
+.GamepadVisuals {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.GamepadVisuals-item {
+	display: flex;
+	justify-content: center;
+}

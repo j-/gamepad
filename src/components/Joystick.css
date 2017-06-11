@@ -1,0 +1,27 @@
+.Joystick {
+	width: 12em;
+	height: 12em;
+	position: relative;
+}
+
+.Joystick-x {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.Joystick-y {
+	transform-origin: top left;
+	transform: rotate(90deg);
+	position: absolute;
+	top: 0;
+	left: 2em;
+}
+
+.Joystick-position {
+	width: 10em;
+	height: 10em;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
