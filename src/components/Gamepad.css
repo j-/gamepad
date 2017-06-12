@@ -1,6 +1,7 @@
 .Gamepad {
-	border-radius: 2.5px;
-	border: 1px solid #bbb;
+	border-radius: 3px;
+	background-color: #fff;
+	color: #222;
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;

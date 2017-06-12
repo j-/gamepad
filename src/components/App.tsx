@@ -4,7 +4,9 @@ import { supported } from '../support';
 
 const App = () => (
 	<div>
-		<h1>Gamepad</h1>
+		<h1>
+			<a href="https://skeoh.com/gamepad">Gamepad</a>
+		</h1>
 		<p>Connect a gamepad and press any button to activate.</p>
 		<ul>
 			<li><a href="https://github.com/j-/gamepad">GitHub project page</a></li>

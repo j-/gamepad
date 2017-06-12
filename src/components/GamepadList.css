@@ -5,6 +5,7 @@
 	align-items: stretch;
 	align-content: flex-start;
 	flex-wrap: wrap;
+	margin: 0 -0.5em;
 }
 
 .GamepadList-item {
