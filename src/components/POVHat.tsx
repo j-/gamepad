@@ -2,31 +2,30 @@ import * as React from 'react';
 import './POVHat.css';
 
 export interface Props extends React.Props<void> {
-	buttons: GamepadButton[];
+	pressedN: boolean;
+	pressedS: boolean;
+	pressedW: boolean;
+	pressedE: boolean;
 }
 
 export class Direction extends React.Component<Props, void> {
 	render () {
-		const { buttons } = this.props;
-		const buttonN = buttons[0xc];
-		const buttonS = buttons[0xd];
-		const buttonW = buttons[0xe];
-		const buttonE = buttons[0xf];
-		if (buttonN.pressed && !buttonW.pressed && !buttonE.pressed) {
+		const { pressedN, pressedS, pressedE, pressedW } = this.props;
+		if (pressedN && !pressedW && !pressedE) {
 			return <div className="direction-n" />;
-		} else if (buttonN.pressed && buttonE.pressed) {
+		} else if (pressedN && pressedE) {
 			return <div className="direction-ne" />;
-		} else if (buttonE.pressed && !buttonN.pressed && !buttonS.pressed) {
+		} else if (pressedE && !pressedN && !pressedS) {
 			return <div className="direction-e" />;
-		} else if (buttonE.pressed && buttonS.pressed) {
+		} else if (pressedE && pressedS) {
 			return <div className="direction-se" />;
-		} else if (buttonS.pressed && !buttonE.pressed && !buttonW.pressed) {
+		} else if (pressedS && !pressedE && !pressedW) {
 			return <div className="direction-s" />;
-		} else if (buttonS.pressed && buttonW.pressed) {
+		} else if (pressedS && pressedW) {
 			return <div className="direction-sw" />;
-		} else if (buttonW.pressed && !buttonS.pressed && !buttonN.pressed) {
+		} else if (pressedW && !pressedS && !pressedN) {
 			return <div className="direction-w" />;
-		} else if (buttonW.pressed && buttonN.pressed) {
+		} else if (pressedW && pressedN) {
 			return <div className="direction-nw" />;
 		} else {
 			return <div className="direction-none" />;
@@ -36,10 +35,15 @@ export class Direction extends React.Component<Props, void> {
 
 export default class POVHat extends React.Component<Props, void> {
 	render () {
-		const { buttons } = this.props;
+		const { pressedN, pressedS, pressedE, pressedW } = this.props;
 		return (
 			<div className="POVHat">
-				<Direction buttons={buttons} />
+				<Direction
+					pressedN={pressedN}
+					pressedS={pressedS}
+					pressedW={pressedW}
+					pressedE={pressedE}
+				/>
 			</div>
 		);
 	}

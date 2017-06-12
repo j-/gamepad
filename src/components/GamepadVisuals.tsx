@@ -26,7 +26,10 @@ export default class GamepadVisuals extends React.Component<Props, void> {
 				</div>
 				<div className="GamepadVisuals-item" title="Point of View Hat">
 					<POVHat
-						buttons={gamepad.buttons}
+						pressedN={gamepad.buttons[0xc].pressed}
+						pressedS={gamepad.buttons[0xd].pressed}
+						pressedW={gamepad.buttons[0xe].pressed}
+						pressedE={gamepad.buttons[0xf].pressed}
 					/>
 				</div>
 			</div>
