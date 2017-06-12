@@ -18,13 +18,13 @@ const ButtonValue = (props: ButtonValueProps): React.ReactElement<ButtonValuePro
 
 export interface Props extends React.Props<void> {
 	index: number;
-	button: GamepadButton;
+	value: number;
+	pressed: boolean;
 }
 
 export default class Button extends React.Component<Props, void> {
 	render () {
-		const { index, button } = this.props;
-		const { value, pressed } = button;
+		const { index, value, pressed } = this.props;
 		const className = classNames('Button', {
 			'Button-pressed': pressed,
 		});
