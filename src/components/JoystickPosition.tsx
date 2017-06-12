@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './JoystickPosition.css';
 
 const WIDTH = 160;
 const HEIGHT = 160;
