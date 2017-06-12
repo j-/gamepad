@@ -24,13 +24,20 @@ export interface Props extends React.Props<void> {
 export default class Button extends React.Component<Props, void> {
 	render () {
 		const { index, button } = this.props;
+		const { value, pressed } = button;
 		const className = classNames('Button', {
-			'Button-pressed': button.pressed,
+			'Button-pressed': pressed,
 		});
+		const transform = `scaleY(${value})`;
 		return (
 			<div className={className}>
-				<em>{'#' + index}</em>
-				<ButtonValue value={button.value} />
+				<div className="Button-graph">
+					<div className="Button-graph-bar" style={{ transform }} />
+				</div>
+				<div className="Button-content">
+					<em>{'#' + index}</em>
+					<ButtonValue value={value} />
+				</div>
 			</div>
 		);
 	}
