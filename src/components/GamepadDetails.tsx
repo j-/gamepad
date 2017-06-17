@@ -7,7 +7,7 @@ export interface Props {
 export default class GamepadDetails extends React.Component<Props, void> {
 	render () {
 		const { gamepad } = this.props;
-		const { index, mapping, connected } = gamepad;
+		const { index, mapping, connected, timestamp } = gamepad;
 		return (
 			<div className="GamepadDetails">
 				<strong>Index</strong>:&nbsp;
@@ -15,7 +15,9 @@ export default class GamepadDetails extends React.Component<Props, void> {
 				<strong>Mapping</strong>:&nbsp;
 				<span>{mapping || <em>Unknown</em>}</span>,&nbsp;
 				<strong>Connected</strong>:&nbsp;
-				<span>{connected ? 'yes' : 'no'}</span>
+				<span>{connected ? 'yes' : 'no'}</span>,&nbsp;
+				<strong>Timestamp</strong>:&nbsp;
+				<span>{timestamp}</span>
 			</div>
 		);
 	}
