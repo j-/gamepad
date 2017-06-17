@@ -5,11 +5,12 @@ import './GamepadVisuals.css';
 
 export interface Props {
 	gamepad: Gamepad;
+	joystickSize: number;
 }
 
 export default class GamepadVisuals extends React.Component<Props, void> {
 	render () {
-		const { gamepad } = this.props;
+		const { gamepad, joystickSize } = this.props;
 		const { axes, buttons } = gamepad;
 		return (
 			<div className="GamepadVisuals">
@@ -17,12 +18,16 @@ export default class GamepadVisuals extends React.Component<Props, void> {
 					<Joystick
 						x={axes[0]}
 						y={axes[1]}
+						width={joystickSize}
+						height={joystickSize}
 					/>
 				</div>
 				<div className="GamepadVisuals-item" title="Right joystick">
 					<Joystick
 						x={axes[2]}
 						y={axes[3]}
+						width={joystickSize}
+						height={joystickSize}
 					/>
 				</div>
 				<div className="GamepadVisuals-item" title="Point of View Hat">

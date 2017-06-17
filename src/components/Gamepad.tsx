@@ -28,7 +28,7 @@ export default class GamepadComponent extends React.Component<Props, void> {
 						<Buttons buttons={gamepad.buttons} />
 					</div>
 					<div className="Gamepad-row">
-						<GamepadVisuals gamepad={gamepad} />
+						<GamepadVisuals gamepad={gamepad} joystickSize={160} />
 					</div>
 				</div>
 			</InputContainer>
