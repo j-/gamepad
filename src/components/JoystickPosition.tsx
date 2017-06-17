@@ -14,6 +14,12 @@ export interface Props {
 
 export default class JoystickPosition extends React.PureComponent<Props, void> {
 	private canvas: HTMLCanvasElement;
+	private ctx: CanvasRenderingContext2D | null;
+
+	constructor (props: Props) {
+		super(props);
+		this.updateCanvas = this.updateCanvas.bind(this);
+	}
 
 	componentDidMount () {
 		this.drawPosition(this.props, { x: 0, y: 0 });
@@ -27,7 +33,7 @@ export default class JoystickPosition extends React.PureComponent<Props, void> {
 		return (
 			<div className="JoystickPosition">
 				<canvas
-					ref={(ref) => this.canvas = ref}
+					ref={this.updateCanvas}
 					className="JoystickPosition-canvas"
 					width={WIDTH}
 					height={HEIGHT}
@@ -36,14 +42,19 @@ export default class JoystickPosition extends React.PureComponent<Props, void> {
 		);
 	}
 
+	private updateCanvas (canvas: HTMLCanvasElement) {
+		this.canvas = canvas;
+		this.ctx = canvas.getContext('2d');
+	}
+
 	private drawPosition (props: Props, oldProps: Props) {
-		const canvas = this.canvas;
-		const ctx = canvas.getContext('2d');
+		const { ctx } = this;
 		if (!ctx) {
 			return;
 		}
 		ctx.save();
 		ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+		ctx.strokeStyle = 'black';
 		ctx.fillRect(0, 0, WIDTH, HEIGHT);
 		ctx.translate(HALF_WIDTH, HALF_HEIGHT);
 		ctx.beginPath();
