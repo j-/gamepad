@@ -14,6 +14,7 @@ export interface Props extends XYCoords {
 export default class JoystickPosition extends React.PureComponent<Props, void> {
 	private canvas: HTMLCanvasElement;
 	private ctx: CanvasRenderingContext2D | null;
+	private drawLoopId: number;
 
 	constructor (props: Props) {
 		super(props);
@@ -21,11 +22,16 @@ export default class JoystickPosition extends React.PureComponent<Props, void> {
 	}
 
 	componentDidMount () {
-		this.drawPosition(this.props, { x: 0, y: 0 });
+		this.drawLoop(this.props, { x: 0, y: 0 });
+	}
+
+	componentWillUnmount () {
+		cancelAnimationFrame(this.drawLoopId);
+		delete this.drawLoopId;
 	}
 
 	componentWillReceiveProps (nextProps: Props) {
-		this.drawPosition(nextProps, this.props);
+		this.drawLoop(nextProps, this.props);
 	}
 
 	render () {
@@ -41,10 +47,16 @@ export default class JoystickPosition extends React.PureComponent<Props, void> {
 			</div>
 		);
 	}
-
 	private updateCanvas (canvas: HTMLCanvasElement) {
 		this.canvas = canvas;
 		this.ctx = canvas.getContext('2d');
+	}
+
+	private drawLoop (newCoords: XYCoords, oldCoords: XYCoords = newCoords) {
+		this.drawPosition(newCoords, oldCoords);
+		this.drawLoopId = requestAnimationFrame(() => {
+			this.drawLoop(newCoords, oldCoords);
+		});
 	}
 
 	private drawPosition (newCoords: XYCoords, oldCoords: XYCoords) {
@@ -57,7 +69,6 @@ export default class JoystickPosition extends React.PureComponent<Props, void> {
 		const halfHeight = height / 2;
 		ctx.save();
 		ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
-		ctx.strokeStyle = 'black';
 		ctx.fillRect(0, 0, width, height);
 		ctx.translate(halfWidth, halfHeight);
 		ctx.beginPath();
