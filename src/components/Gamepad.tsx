@@ -35,7 +35,12 @@ export default class GamepadComponent extends React.Component<Props, void> {
 						<GamepadId id={gamepad.id} />
 					</div>
 					<div className="Gamepad-row">
-						<GamepadDetails gamepad={gamepad} />
+						<GamepadDetails
+							index={gamepad.index}
+							mapping={gamepad.mapping}
+							connected={gamepad.connected}
+							timestamp={gamepad.timestamp}
+						/>
 					</div>
 					<div className="Gamepad-row">
 						<Buttons buttons={gamepad.buttons} />

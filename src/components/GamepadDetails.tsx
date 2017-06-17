@@ -1,13 +1,12 @@
 import * as React from 'react';
 
-export interface Props {
-	gamepad: Gamepad;
+export interface Props extends Partial<Gamepad> {
+
 }
 
-export default class GamepadDetails extends React.Component<Props, void> {
+export default class GamepadDetails extends React.PureComponent<Props, void> {
 	render () {
-		const { gamepad } = this.props;
-		const { index, mapping, connected, timestamp } = gamepad;
+		const { index, mapping, connected, timestamp } = this.props;
 		return (
 			<div className="GamepadDetails">
 				<strong>Index</strong>:&nbsp;
