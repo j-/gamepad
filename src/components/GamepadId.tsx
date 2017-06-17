@@ -2,16 +2,15 @@ import * as React from 'react';
 import './GamepadId.css';
 
 export interface Props {
-	index: number;
 	id: string;
 }
 
 export default class GamepadId extends React.PureComponent<Props, void> {
 	render () {
-		const { index, id } = this.props;
+		const { id } = this.props;
 		return (
 			<h2 className="GamepadId" title={id}>
-				{`#${index}: ${id}`}
+				{id}
 			</h2>
 		);
 	}
