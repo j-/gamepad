@@ -11,6 +11,21 @@ export interface Props {
 }
 
 export default class GamepadComponent extends React.Component<Props, void> {
+	private lastTimestamp: number;
+
+	constructor (props: Props) {
+		super(props);
+		this.lastTimestamp = props.gamepad.timestamp;
+	}
+
+	shouldComponentUpdate (nextProps: Props) {
+		const { gamepad } = nextProps;
+		const { timestamp } = gamepad;
+		const shouldUpdate = this.lastTimestamp !== timestamp;
+		this.lastTimestamp = timestamp;
+		return shouldUpdate;
+	}
+
 	render () {
 		const { gamepad } = this.props;
 		return (
