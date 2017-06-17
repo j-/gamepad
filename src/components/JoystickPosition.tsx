@@ -12,7 +12,7 @@ export interface Props {
 	y: number;
 }
 
-export default class JoystickPosition extends React.Component<Props, void> {
+export default class JoystickPosition extends React.PureComponent<Props, void> {
 	private canvas: HTMLCanvasElement;
 
 	componentDidMount () {

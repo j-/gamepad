@@ -6,7 +6,7 @@ export interface Props {
 	id: string;
 }
 
-export default class GamepadId extends React.Component<Props, void> {
+export default class GamepadId extends React.PureComponent<Props, void> {
 	render () {
 		const { index, id } = this.props;
 		return (

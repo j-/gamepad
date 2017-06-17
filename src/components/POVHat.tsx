@@ -8,7 +8,7 @@ export interface Props {
 	pressedE: boolean;
 }
 
-export class Direction extends React.Component<Props, void> {
+export class Direction extends React.PureComponent<Props, void> {
 	render () {
 		const { pressedN, pressedS, pressedE, pressedW } = this.props;
 		if (pressedN && !pressedW && !pressedE) {
@@ -33,7 +33,7 @@ export class Direction extends React.Component<Props, void> {
 	}
 }
 
-export default class POVHat extends React.Component<Props, void> {
+export default class POVHat extends React.PureComponent<Props, void> {
 	render () {
 		const { pressedN, pressedS, pressedE, pressedW } = this.props;
 		return (

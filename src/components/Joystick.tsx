@@ -8,7 +8,7 @@ export interface Props {
 	y: number;
 }
 
-export default class Joystick extends React.Component<Props, void> {
+export default class Joystick extends React.PureComponent<Props, void> {
 	render () {
 		const { x, y } = this.props;
 		return (

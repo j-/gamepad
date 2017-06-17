@@ -5,7 +5,7 @@ export interface Props {
 	value: number;
 }
 
-export default class Axis extends React.Component<Props, void> {
+export default class Axis extends React.PureComponent<Props, void> {
 	render () {
 		const { value } = this.props;
 		return (

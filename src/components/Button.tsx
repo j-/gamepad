@@ -22,7 +22,7 @@ export interface Props {
 	pressed: boolean;
 }
 
-export default class Button extends React.Component<Props, void> {
+export default class Button extends React.PureComponent<Props, void> {
 	render () {
 		const { index, value, pressed } = this.props;
 		const className = classNames('Button', {

@@ -5,7 +5,7 @@ export interface Props {
 
 }
 
-export default class InputContainer extends React.Component<Props, void> {
+export default class InputContainer extends React.PureComponent<Props, void> {
 	render () {
 		const { children } = this.props;
 		return (
