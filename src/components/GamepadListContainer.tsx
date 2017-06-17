@@ -36,15 +36,15 @@ export default class GamepadListContainer extends React.Component<{}, State> {
 		delete this.requestId;
 	}
 
-	handleAnimationFrame () {
+	render () {
+		const { gamepads } = this.state;
+		return <GamepadList gamepads={gamepads} />;
+	}
+
+	private handleAnimationFrame () {
 		this.setState(() => ({
 			gamepads: getGamepads(),
 		}));
 		this.requestId = requestAnimationFrame(this.handleAnimationFrame);
-	}
-
-	render () {
-		const { gamepads } = this.state;
-		return <GamepadList gamepads={gamepads} />;
 	}
 }
