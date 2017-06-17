@@ -2,7 +2,7 @@ import * as React from 'react';
 import Button from './Button';
 import './Buttons.css';
 
-export interface Props extends React.Props<void> {
+export interface Props {
 	buttons: GamepadButton[];
 }
 

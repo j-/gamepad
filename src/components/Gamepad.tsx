@@ -5,7 +5,7 @@ import Buttons from './Buttons';
 import GamepadVisuals from './GamepadVisuals';
 import './Gamepad.css';
 
-export interface Props extends React.Props<void> {
+export interface Props {
 	gamepad: Gamepad;
 }
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './Axis.css';
 
-export interface Props extends React.Props<void> {
+export interface Props {
 	value: number;
 }
 

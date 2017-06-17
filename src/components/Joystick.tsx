@@ -3,7 +3,7 @@ import Axis from './Axis';
 import JoystickPosition from './JoystickPosition';
 import './Joystick.css';
 
-export interface Props extends React.Props<void> {
+export interface Props {
 	x: number;
 	y: number;
 }

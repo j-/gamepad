@@ -7,7 +7,7 @@ const HEIGHT = 160;
 const HALF_WIDTH = WIDTH / 2;
 const HALF_HEIGHT = HEIGHT / 2;
 
-export interface Props extends React.Props<void> {
+export interface Props {
 	x: number;
 	y: number;
 }

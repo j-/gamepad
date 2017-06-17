@@ -6,7 +6,7 @@ const formatValue = (value: number) => (
 	value.toFixed(4)
 );
 
-interface ButtonValueProps extends React.Props<void> {
+interface ButtonValueProps {
 	value: number;
 }
 
@@ -16,7 +16,7 @@ const ButtonValue = (props: ButtonValueProps): React.ReactElement<ButtonValuePro
 	</div>
 );
 
-export interface Props extends React.Props<void> {
+export interface Props {
 	index: number;
 	value: number;
 	pressed: boolean;

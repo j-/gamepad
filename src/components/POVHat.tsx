@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './POVHat.css';
 
-export interface Props extends React.Props<void> {
+export interface Props {
 	pressedN: boolean;
 	pressedS: boolean;
 	pressedW: boolean;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './GamepadId.css';
 
-export interface Props extends React.Props<void> {
+export interface Props {
 	index: number;
 	id: string;
 }
