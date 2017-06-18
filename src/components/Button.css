@@ -1,6 +1,5 @@
 .Button {
 	box-sizing: border-box;
-	width: 12.5%;
 	outline: 1px solid #ddd;
 	outline-offset: -2px;
 	position: relative;
