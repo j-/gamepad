@@ -49,7 +49,9 @@ export default class JoystickPosition extends React.PureComponent<Props, void> {
 	}
 	private updateCanvas (canvas: HTMLCanvasElement) {
 		this.canvas = canvas;
-		this.ctx = canvas.getContext('2d');
+		if (canvas) {
+			this.ctx = canvas.getContext('2d');
+		}
 	}
 
 	private drawLoop (newCoords: XYCoords, oldCoords: XYCoords = newCoords) {

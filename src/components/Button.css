@@ -1,6 +1,5 @@
 .Button {
-	box-sizing: border-box;
-	outline: 1px solid #ddd;
+	outline: 1px solid #eee;
 	outline-offset: -2px;
 	position: relative;
 	z-index: 1;
@@ -32,6 +31,12 @@
 	font-size: 1.25em;
 	padding: 0.25em;
 	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.Button-label {
+	font-style: italic;
 }
 
 .Button-pressed .Button-value {

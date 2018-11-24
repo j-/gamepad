@@ -8,3 +8,7 @@
 	box-sizing: border-box;
 	padding: 0.5em;
 }
+
+.Gamepad-section-heading {
+	margin: 0 0 0.5em;
+}

@@ -1,20 +1,20 @@
 import * as React from 'react';
-import './Axis.css';
+import './AxisPosition.css';
 
 export interface Props {
 	value: number;
 }
 
-export default class Axis extends React.PureComponent<Props, void> {
+export default class AxisPosition extends React.PureComponent<Props, void> {
 	render () {
 		const { value } = this.props;
 		return (
-			<div className="Axis">
+			<div className="AxisPosition">
 				<div
-					className="Axis-bar"
+					className="AxisPosition-bar"
 					style={{ transform: `scaleX(${value})` }}
 				/>
-				<div className="Axis-value">
+				<div className="AxisPosition-value">
 					{value}
 				</div>
 			</div>

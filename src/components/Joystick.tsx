@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Axis from './Axis';
+import AxisPosition from './AxisPosition';
 import JoystickPosition from './JoystickPosition';
 import './Joystick.css';
 
@@ -16,10 +16,10 @@ export default class Joystick extends React.PureComponent<Props, void> {
 		return (
 			<div className="Joystick">
 				<div className="Joystick-x">
-					<Axis value={x} />
+					<AxisPosition value={x} />
 				</div>
 				<div className="Joystick-y">
-					<Axis value={y} />
+					<AxisPosition value={y} />
 				</div>
 				<div className="Joystick-position">
 					<JoystickPosition

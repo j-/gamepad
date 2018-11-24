@@ -4,6 +4,14 @@
 	flex-wrap: wrap;
 }
 
-.Buttons-button {
-	width: 12.5%;
+@media (min-width: 100px) {
+	.Buttons-button {
+		width: 12.5%;
+	}
+}
+
+@media (max-width: 999px) {
+	.Buttons-button {
+		width: 25%;
+	}
 }

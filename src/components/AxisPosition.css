@@ -1,15 +1,15 @@
-.Axis {
+.AxisPosition {
 	outline: 1px solid #ccc;
 	width: 10em;
 	height: 2em;
 	position: relative;
 }
 
-.Axis-value {
+.AxisPosition-value {
 	display: none;
 }
 
-.Axis-bar {
+.AxisPosition-bar {
 	position: absolute;
 	left: 50%;
 	background-color: #ddd;

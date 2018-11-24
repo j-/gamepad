@@ -43,6 +43,7 @@ export default class GamepadComponent extends React.Component<Props, void> {
 						/>
 					</div>
 					<div className="Gamepad-row">
+						<h3 className="Gamepad-section-heading">Buttons</h3>
 						<Buttons buttons={gamepad.buttons} />
 					</div>
 					<div className="Gamepad-row">
